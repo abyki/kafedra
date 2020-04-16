@@ -1,0 +1,8 @@
+---
+- hosts: localhost  
+  tasks:
+  - os_key:
+      cloud: mugadzhir
+    register: result
+  - debug:
+      msg: "{{ result  }}"

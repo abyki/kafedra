@@ -1,0 +1,9 @@
+---
+- hosts: cloud_servers  
+  become: yes
+  tasks:
+  - os_server_action:
+      action: pause
+      cloud: mugadzhir
+      server: mugadzhir
+      timeout: 60

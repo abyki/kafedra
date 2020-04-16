@@ -1,0 +1,11 @@
+---
+- hosts: localhost
+  become: yes
+
+  tasks:
+
+  - os_server_facts:
+       cloud: mugadzhir
+    register: result
+  - debug:
+     msg: "{{ result }}"  

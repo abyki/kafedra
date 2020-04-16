@@ -1,0 +1,10 @@
+---
+- name: create a file
+  hosts: all
+  become: yes
+
+  tasks:
+  - copy:
+      content: "This file created by ANSIBLE"
+      dest: /home/muga/hello_world
+      mode: 0644

@@ -1,0 +1,11 @@
+---
+- name: install default Apache web server
+  hosts: all
+  become: yes
+
+  tasks:
+  - name: install Apache
+    apt: name=httpd state=latest
+
+  - name: start Apache
+    service: name=httpd state=started enable=yes
