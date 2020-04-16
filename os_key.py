@@ -8,7 +8,7 @@ ANSIBLE_METADATA = {'status': ['preview'],
 
 def main():
   argument_spec = openstack_full_argument_spec(
-   # name=dict(required=False),
+    name=dict(required=False),
    # public_key=dict(required=False),
    # filters=dict(type='dict', required=False),
    # all_projects=dict(required=False, type='bool', default=False),
@@ -24,16 +24,8 @@ def main():
  # all_projects=module.params['all_projects']
   sdk, cloud = openstack_cloud_from_module(module)
   try:
-    servers = cloud.search_servers()
-    result=[{'id server':cloud.get_server_id(server), 'key':cloud.list_keypairs(server)} for server in servers]
-
-# try:
-#    servers = cloud.search_servers() # detailed=module.params['detailed'], filters=module.params['filters'], all_projects=module.params['all_projects'])
-#    for server in servers:
-#      facts.id = cloud.get_server_id(server)
-#      facts.key = cloud.list_keypairs(server)
-#      result.append(facts)
-    module.exit_json(result = result)
+    key = cloud.list_keypairs()
+    module.exit_json(key = key)
   except sdk.exception.OpenStackCloudException as e:
     module.fail_json(msg=str(e))
 
