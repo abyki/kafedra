@@ -1,8 +1,0 @@
- clouds:
-  mugadzhir:
-    region_name: RegionOne
-    auth:
-      username: 'm.akaev'
-      password: DCxqmSz4r
-      project_name: 'challenge'
-      auth_url: 'https://cloud.ispras.ru:5000/v2.0'
